@@ -1,0 +1,1 @@
+var sidebar_list=new PerfectScrollbar(".sidebar-list"),product_cat=new PerfectScrollbar(".product-cat");

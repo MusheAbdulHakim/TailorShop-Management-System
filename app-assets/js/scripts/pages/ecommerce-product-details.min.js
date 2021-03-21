@@ -1,0 +1,1 @@
+$.fn.raty.defaults.path="../../../app-assets/images/raty/",$(".ratings").raty({readOnly:!0,score:4.5}),$("#customer-review").raty({half:!0}),$(".touchspin").TouchSpin({min:1,max:10});

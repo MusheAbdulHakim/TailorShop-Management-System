@@ -1,0 +1,1 @@
+$(".patients-list").DataTable();

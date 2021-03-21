@@ -1,0 +1,34 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks -MultiViews
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !\.(?:css|js|jpg|gif|png)$ [NC]
+
+   
+    RewriteRule  ^search             search.php            [NC,L]
+    RewriteRule  ^dashboard             dashboard.php            [NC,L]
+    RewriteRule  ^customers             customers.php            [NC,L]
+    RewriteRule  ^orders             orders.php            [NC,L]
+    RewriteRule  ^cloth-types             cloth-types.php            [NC,L]
+    RewriteRule  ^designation             designation.php            [NC,L]
+    RewriteRule  ^expense-categories             expense-categories.php            [NC,L]
+    RewriteRule  ^expenses             expenses.php            [NC,L]
+    RewriteRule  ^income-categories             income-categories.php            [NC,L]
+    RewriteRule  ^income             income.php            [NC,L]
+    RewriteRule  ^measurement-parts             measurement-parts.php            [NC,L]
+    RewriteRule  ^settings             settings.php            [NC,L]
+    RewriteRule  ^users             users.php            [NC,L]
+    RewriteRule  ^staff             staff.php            [NC,L]
+    RewriteRule  ^login             login.php            [NC,L]
+    RewriteRule  ^logout             logout.php            [NC,L]
+    RewriteRule  ^register             register.php            [NC,L]
+    RewriteRule  ^user-profile             user-profile.php            [NC,L]
+    RewriteRule  ^profile-edit             profile-edit.php            [NC,L]
+    RewriteRule  ^recover-password             recover-password.php            [NC,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
