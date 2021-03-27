@@ -10,8 +10,9 @@ login credentials `username: admin` `password: admin`
 
 
 # note
-1. if you want to change the database configurations, you have to change both the `config.php` file in the includes folder and `db.class.php` file inside classes folder
-This project is still under development fee free to fork and submit your pullrequests
+1. if you want to change the database configurations, you have to change both the `config.php` file in the includes folder and `db.class.php` file inside classes folder.
+
+2. This project is still under development fee free to fork and submit your pullrequests
 
 #screenshots
 ![ScreenShot](/screenshots/login.png?raw=true "Login page")
