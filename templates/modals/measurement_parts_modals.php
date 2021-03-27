@@ -52,29 +52,34 @@
 		</div>
 	</div>
 <!-- add cloth types modal ends here -->
-
-<div class="modal custom-modal fade" id="delete" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<form method="POST">
-					<div class="modal-body">
-						<div class="form-header">
-							<h3>Delete</h3>
-							<input type="hidden" name="delete_id" id="delete_id">
-							<p>Are you sure want to delete?</p>
-						</div>
-						<div class="modal-btn delete-action">
-							<div class="row">
-								<div class="col-6">
-									<button type="submit" name="delete" class="btn btn-primary continue-btn"></button>
-								</div>
-								<div class="col-6">
-									<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-			 </form>
-			</div>
-		</div>
-	</div>
+<!-- delete modal -->
+<!-- Modal -->
+									<div class="modal fade text-left" id="danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10"
+									 aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header bg-danger white">
+													<h4 class="modal-title white" id="myModalLabel10">Basic Modal</h4>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<h5>Check First Paragraph</h5>
+													<p>Oat cake ice cream candy chocolate cake chocolate cake cotton candy dragée apple pie. Brownie carrot
+														cake candy canes bonbon fruitcake topping halvah. Cake sweet roll cake cheesecake cookie chocolate cake
+														liquorice. Apple pie sugar plum powder donut soufflé.</p>
+													<p>Sweet roll biscuit donut cake gingerbread. Chocolate cupcake chocolate bar ice cream. Danish candy
+														cake.</p>
+													<hr>
+													<h5>Some More Text</h5>
+													<p>Cupcake sugar plum dessert tart powder chocolate fruitcake jelly. Tootsie roll bonbon toffee danish.
+														Biscuit sweet cake gummies danish. Tootsie roll cotton candy tiramisu lollipop candy cookie biscuit pie.</p>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-outline-danger">Save changes</button>
+												</div>
+											</div>
+										</div>
+									</div>

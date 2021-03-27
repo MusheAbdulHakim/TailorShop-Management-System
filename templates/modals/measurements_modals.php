@@ -1,5 +1,5 @@
-<!-- add order modal starts here -->
-	<div class="modal fade text-left" id="add-order" tabindex="-1" role="dialog" aria-labelledby="AddCustomer" aria-hidden="true">
+<!-- add measurements modal starts here -->
+	<div class="modal fade text-left" id="add-measurement" tabindex="-1" role="dialog" aria-labelledby="AddCustomer" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -73,9 +73,8 @@
 			</div>
 		</div>
 	</div>
-<!-- add order modal ends here -->
-
-<!-- delete modal starts here -->
+<!-- add measurements modal ends here -->
+<!-- delete measurements modal starts here -->
 <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <form method="POST">
@@ -98,5 +97,4 @@
         </form>
     </div>
 	</div>
-
-<!-- delete modal ends here -->
+<!-- delete measurements modal ends here -->

@@ -19,6 +19,8 @@
 
 								<li class=" nav-item"><a href="<?php echo BASE_URL; ?>customers"><i class="ft ft-users"></i><span class="menu-title" data-i18n="Customers">Customers</span></a>
 								</li>
+								<li class=" nav-item"><a href="<?php echo BASE_URL; ?>measurements"><i class="ft ft-user"></i><span class="menu-title" data-i18n="Customers">Customer Measurement</span></a>
+								</li>
 								<li class=" nav-item"><a href="<?php echo BASE_URL; ?>users"><i class="la la-users"></i><span class="menu-title" data-i18n="Customers">Users</span></a>
 								</li>
 								<li class=" nav-item"><a href="#"><i class="material-icons">people_outline</i><span class="menu-title" data-i18n="Staff">Staff Management</span></a>

@@ -15,6 +15,7 @@
     RewriteRule  ^expenses             expenses.php            [NC,L]
     RewriteRule  ^income-categories             income-categories.php            [NC,L]
     RewriteRule  ^income             income.php            [NC,L]
+    RewriteRule  ^measurements             measurements.php            [NC,L]
     RewriteRule  ^measurement-parts             measurement-parts.php            [NC,L]
     RewriteRule  ^settings             settings.php            [NC,L]
     RewriteRule  ^users             users.php            [NC,L]

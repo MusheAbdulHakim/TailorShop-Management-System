@@ -1,39 +1,28 @@
 <?php 
 	include_once 'includes/loader.php';
 	check_login();
-	if (isset($_POST['add_measurement'])) {
-		$category = htmlspecialchars($_POST['category']);
-		$title = htmlspecialchars($_POST['title']);
+	if (isset($_POST['add_order'])) {
+		$customer = htmlspecialchars($_POST['customer']);
 		$description = htmlspecialchars($_POST['description']);
-		//grabing picture
-		$file = $_FILES['image']['name'];
-		$file_loc = $_FILES['image']['tmp_name'];
-		$folder="uploads/parts/"; 
-		$new_file_name = strtolower($file);
-		$final_file=str_replace(' ','-',$new_file_name);
-		if(move_uploaded_file($file_loc,$folder.$final_file))
-			{
-				$avatar=$final_file;
-			}
-		else{
-			$avatar = Null;
-		}
-		$add_measurement = DB::insert('parts',[
-			'category'=>$category,
-			'title'=>$title,
+		$date_received = htmlspecialchars($_POST['date_received']);
+		$received_by = htmlspecialchars($_POST['receiver']);
+		$amount = htmlspecialchars($_POST['amount']);
+		$paid = htmlspecialchars($_POST['paid']);
+		$status = htmlspecialchars($_POST['status']);
+		$collect_date = htmlspecialchars($_POST['date_to_collect']);
+		$add_order = DB::insert('orders',[
+			'customer'=>$customer,
 			'description'=>$description,
-			'image'=>$avatar
+			'amount'=>$amount,
+			'paid'=>$paid,
+			'received_by'=>$received_by,
+			'date_received'=>$date_received,
+			'completed'=>$status,
+			'date_collected'=>$collect_date
 		]);
-		if ($add_measurement) {
-			echo "<script>alert('New Measurement has been added');</script>";
-			echo "<script>document.location.href='measurement-parts'</script>";
-		}
-	}elseif(isset($_POST['delete()'])){
-		$id = $_POST['delete_id'];
-		$delete = DB::delete('parts', 'id=%s', $id);
-		if ($delete) {
-			echo "<script>alert('Measurement deleted Successfully');</script>";
-			echo "<script>document.location.href='measurement-parts'</script>";
+		if ($add_order) {
+			echo "<script>alert('new order has been added');</script>";
+			echo "<script>document.location.href='orders'</script>";
 		}
 	}
 
@@ -49,7 +38,7 @@
 	<meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
 	<meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
 	<meta name="author" content="PIXINVENT">
-	<title>Measurement Parts </title>
+	<title>Customer Measurements </title>
 	<link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
@@ -69,7 +58,6 @@
 	<!-- END: Theme CSS-->
 	<!-- BEGIN: Page CSS-->
 	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>app-assets/css/core/menu/menu-types/material-vertical-menu.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>app-assets/css/pages/gallery.min.css">
 	<!-- END: Page CSS-->
 	<!-- BEGIN: Custom CSS-->
 	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/style.css">
@@ -91,15 +79,15 @@
 			<div class="content-header-light col-12">
 				<div class="row">
 					<div class="content-header-left col-md-9 col-12 mb-2">
-						<h3 class="content-header-title">Measurement Parts</h3>
+						<h3 class="content-header-title">Measurements</h3>
 						<div class="row breadcrumbs-top">
 							<div class="breadcrumb-wrapper col-12">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>dashboard">Home</a>
 									</li>
-									<li class="breadcrumb-item"><a href="#">Measurements</a>
+									<li class="breadcrumb-item"><a href="#">Measurement</a>
 									</li>
-									<li class="breadcrumb-item active">All Measurement Parts
+									<li class="breadcrumb-item active">All Customer Measurements
 									</li>
 								</ol>
 							</div>
@@ -107,9 +95,9 @@
 					</div>
 					<div class="content-header-right col-md-3 col-12">
 						<div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-							<button class="btn btn-primary roundbox-shadow-2 px-2 mb-1" type="button" aria-haspopup="true" data-toggle="modal" data-target="#add-measurement-part" aria-expanded="true">Set Measurement Parts</button>
-
-							</div><button class="btn btn-primary roundbox-shadow-2 px-2 mb-1" type="button" aria-haspopup="true" data-toggle="modal" data-target="#danger" aria-expanded="true">Delete</button>
+							
+							<button class="btn btn-primary roundbox-shadow-2 px-2 mb-1" type="button" aria-haspopup="true" data-toggle="modal" data-target="#add-measurement" aria-expanded="true">Add Measurement</button>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -123,7 +111,7 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Measurement Parts List</h4>
+									<h4 class="card-title">Customers Measurement List</h4>
 									<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
 									<div class="heading-elements">
 										<ul class="list-inline mb-0">
@@ -141,37 +129,49 @@
 												<table class="table table-striped table-bordered dataex-html5-export">
 													<thead>
 													<tr>
+														<tr>
 														<th>#</th>
-												    <th>Measurement Type</th>
-												    <th>Measurement Part</th>
-												    <th>Description</th>
-												    <th>Image</th>
-												    <th>Action</th>
+														<th>Customer</th>
+														<th>Description</th>
+														<th>Date Received</th>
+														<th>Amount</th>
+														<th>Paid</th>
+														<th>Balance</th>
+														<th>Action</th>
+													</tr>
 													</tr>
 												</thead>
 													<tbody>
 														<?php 
-															$measurement_parts = DB::query("SELECT * from parts");
+															$orders = DB::query("SELECT * FROM `orders` ORDER BY id desc");
 															$roll = 0;
-															foreach ($measurement_parts as $measurement):
+															foreach($orders as $order):
 																$roll++;
-															
+																$balance = $order['amount']-$order['paid'];
 														 ?>
 														 <tr>
 														 	<td><?php echo $roll; ?></td>
-														 	<td><?php echo htmlspecialchars_decode($measurement['category']); ?></td>
-														 	<td><?php echo htmlspecialchars_decode($measurement['title']); ?></td>
-														 	<td><?php echo htmlspecialchars_decode($measurement['description']); ?></td>
-														 	<td><a target="_blank" href="<?php echo BASE_URL; ?>uploads/parts/<?php echo htmlspecialchars_decode($measurement['image']); ?>">
-														 		<img width="50" alt="avatar" src="<?php echo BASE_URL; ?>uploads/parts/<?php echo htmlspecialchars_decode($measurement['image']); ?>">
-														 	</a></td>
+														 	<td><?php echo htmlspecialchars_decode($order['customer']); ?></td>
+														 	<td><?php echo htmlspecialchars_decode($order['description']); ?></td>
+														 	<td><?php echo htmlspecialchars_decode($order['date_received']); ?></td>
+														 	<td><?php echo currency .htmlspecialchars_decode($order['amount']); ?></td>
+														 		<td><?php echo currency .htmlspecialchars_decode($order['paid']); ?></td>
+														 	<td><?php echo currency .$balance; ?></td>
 														 	<td>
 									                <a href="#" class="float-md-right" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 									                <div class="dropdown-menu">
-									                  <a href="#" data-id="<?php echo $measurement['id'];?>" class="dropdown-item"><i class="la la-edit"></i>Edit</a>
+									                	<a class="dropdown-item" href="">Add Payment</a>
+									                	<div class="dropdown-divider"></div>
+									                
+																		<a class="dropdown-item" href="addmeasurement.php">Receipt</a>
+
+																		
+									                  <div class="dropdown-divider"></div>
+									                  									                 
+									                  <a href="#" class="btn btn-info btn-sm btn-edit"><i class="la la-edit"></i>Edit</a>
 									                  <div class="dropdown-divider"></div>
 									                  
-									                  <a href="#" class="dropdown-item deletebtn" data-id="<?php echo $measurement['id'];?>"><i class="la la-trash"></i>Delete</a>
+									                  <a href="#" class="btn btn-danger btn-sm btn-delete " data-id="<?php echo $order['id'];?>"><i class="la la-trash"></i>Delete</a>
 									                  
 									                </div>
 														 	</td>
@@ -186,9 +186,9 @@
 						</div>
 					</div>
 				</section>
-				<!--/ HTML5 export buttons table -->
-				<!-- include measurement modals -->
-				<?php include_once 'templates/modals/measurement_parts_modals.php'; ?>
+				<!--/ HTML5 export buttons table -->                      
+				<!-- include order modals -->
+				<?php include_once 'templates/modals/measurements_modals.php'; ?>
 			</div>
 		</div>
 	</div>
@@ -203,16 +203,7 @@
 	<?php include_once 'templates/_copyright.php'; ?>
 	<!-- END: Footer-->
 	<!-- END: Footer-->
-	<script type="text/javascript">
-		$(document).ready(function (){
-			$('.deletebtn').on('click',function(){
-					$('#delete').modal('show');
-					var id = $(this).data('id');
-					console.log(id);
-					$('#delete_id').val(id);
-				});
-		});
-	</script>
+	
 	<!-- BEGIN: Vendor JS-->
 	<script src="<?php echo BASE_URL; ?>app-assets/vendors/js/material-vendors.min.js"></script>
 	
@@ -237,7 +228,6 @@
 	<!-- BEGIN: Page JS-->
 	<script src="<?php echo BASE_URL; ?>app-assets/js/scripts/pages/material-app.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>app-assets/js/scripts/gallery/photo-swipe/photoswipe-script.min.js"></script>
 	<!-- END: Page JS-->
 </body>
 <!-- END: Body-->

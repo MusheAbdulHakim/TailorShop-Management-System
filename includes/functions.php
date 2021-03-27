@@ -14,6 +14,19 @@
 		}
 	}
 
+	function is_active($page=''){
+		if(basename($_SERVER['SCRIPT_NAME']) == $page){
+			echo 'active';
+		 }else {
+		  echo '';
+
+		 }
+	}
+	
+   function alert($msg=''){
+   		echo "<script>alert('$msg')</script>";
+   }
+
 	function success_msg($title=Null,$msg=''){
 		$message = "<script>toastr.success($msg, $title)</script>";
 		return $message;
@@ -78,7 +91,12 @@
 			echo $fullname;
 		}
 	}
-
+	function delete($table,$id){
+		$deleted = DB::delete($table, 'id=%s', $id);
+		if ($deleted) {
+			return true;
+		}
+	}
 	function get_avatar()
 	{
 		$results = DB::query("SELECT username,avatar from users where username=%s",$_SESSION['user']);
