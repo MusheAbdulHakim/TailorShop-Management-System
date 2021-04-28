@@ -19,8 +19,16 @@
 			'Sex'=>$sex,
 		]);
 		if ($add_customer) {
-			echo "<script>alert('new customer has been added');</script>";
-			echo "<script>document.location.href='customers'</script>";
+			alert('new customer has been added');;
+			redirect_to('customers');
+		}
+	}
+	if (isset($_GET['delid'])) {
+		$id = $_GET['delid'];
+		$delete = delete('customers',$id);
+		if ($delete) {
+			alert('Customer Has Been Deleted');
+			redirect_to('customers');
 		}
 	}
 
@@ -33,9 +41,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
-	<meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
-	<meta name="author" content="PIXINVENT">
+	
 	<title>Customers </title>
 	<link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/favicon.ico">
@@ -165,7 +171,7 @@
 									                  <a href="#" class="dropdown-item"><i class="la la-edit"></i>Edit</a>
 									                  <div class="dropdown-divider"></div>
 									                  
-									                  <a href="#" class="dropdown-item" data-id="<?php echo $customer['id'];?>"><i class="la la-trash"></i>Delete</a>
+									                  <a href="<?php BASE_URL; ?>customers?delid=<?php echo $customer['id']; ?>" onclick="return confirm('Are you sure you want to delete?')" class="dropdown-item" data-id="<?php echo $customer['id'];?>"><i class="la la-trash"></i>Delete</a>
 									                  
 									                </div>
 														 	</td>

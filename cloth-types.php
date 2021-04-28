@@ -9,8 +9,16 @@
 			'gender'=>$gender,
 		]);
 		if ($add_category) {
-			echo "<script>alert('New Cloth Type has been added');</script>";
-			echo "<script>document.location.href='cloth-types'</script>";
+			alert('New Cloth Type has been added');
+			redirect_to('cloth-types');
+		}
+	}
+	if (isset($_GET['delid'])) {
+		$id = $_GET['delid'];
+		$delete = delete('cloth-types',$id);
+		if ($delete) {
+			alert('Cloth Type Has Been Deleted');
+			redirect_to('cloth-types');
 		}
 	}
 
@@ -23,9 +31,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
-	<meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
-	<meta name="author" content="PIXINVENT">
+	
 	<title>Cloth Types</title>
 	<link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/favicon.ico">
@@ -139,10 +145,10 @@
 									                <a href="#" class="float-md-right" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 									                <div class="dropdown-menu">
 									                	
-									                  <a href="#" data-id="<?php echo $income['id'];?>" class="dropdown-item"><i class="la la-edit"></i>Edit</a>
+									                  <a href="#" data-id="<?php echo $cloth_type['id'];?>" data-gender="<?php echo $cloth_type['gender'];?>" data-title="<?php echo $cloth_type['title'];?>" class="dropdown-item editbtn"><i class="la la-edit"></i>Edit</a>
 									                  <div class="dropdown-divider"></div>
 									                  
-									                  <a href="#" class="dropdown-item" data-id="<?php echo $income['id'];?>"><i class="la la-trash"></i>Delete</a>
+									                  <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo BASE_URL; ?>cloth-types?delid=<?php echo $cloth_type['id'];?>" class="dropdown-item deletebtn" ><i class="la la-trash"></i>Delete</a>
 									                  
 									                </div>
 														 	</td>
@@ -202,5 +208,16 @@
 	<!-- END: Page JS-->
 </body>
 <!-- END: Body-->
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+			$('.editbtn').on('click',function(){
+				var id = $(this).data('id');
+				var title = $(this).data('title');
+				var gender = $(this).data('gender');
+				console.log(title);
+			});
+		});
+</script>
 
 </html>
