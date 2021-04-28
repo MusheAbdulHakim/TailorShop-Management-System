@@ -21,8 +21,16 @@
 			'date_collected'=>$collect_date
 		]);
 		if ($add_order) {
-			echo "<script>alert('new order has been added');</script>";
-			echo "<script>document.location.href='orders'</script>";
+			alert('new order has been added');
+			redirect_to('orders');
+		}
+	}
+	if (isset($_GET['delid'])) {
+		$id = $_GET['delid'];
+		$delete = delete('orders',$id);
+		if ($delete) {
+			alert('Order Has Been Deleted');
+			redirect_to('orders');
 		}
 	}
 
@@ -35,9 +43,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
-	<meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
-	<meta name="author" content="PIXINVENT">
+	
 	<title>Orders </title>
 	<link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>app-assets/images/ico/favicon.ico">
@@ -168,10 +174,10 @@
 																		
 									                  <div class="dropdown-divider"></div>
 									                  									                 
-									                  <a href="#" class="btn btn-info btn-sm btn-edit"><i class="la la-edit"></i>Edit</a>
+									                  <a href="#" class=" editbtn dropdown-item"><i class="la la-edit"></i>Edit</a>
 									                  <div class="dropdown-divider"></div>
 									                  
-									                  <a href="#" class="btn btn-danger btn-sm btn-delete " data-id="<?php echo $order['id'];?>"><i class="la la-trash"></i>Delete</a>
+									                  <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo BASE_URL; ?>orders?delid=<?php echo $order['id']; ?>" class="deletebtn dropdown-item" data-id="<?php echo $order['id'];?>"><i class="la la-trash"></i>Delete</a>
 									                  
 									                </div>
 														 	</td>
