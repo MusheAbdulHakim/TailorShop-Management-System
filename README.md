@@ -1,19 +1,29 @@
 # Installation
 
-1. Download the repository or clone using this command in the terminal. `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
+1. Download the repository or clone using this command in the terminal.
+ `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
 
-2. Go into the project folder. or use this command in the terminal `cd TailorShop-Management-System`.
+2. Go into the project folder. or use this command in the terminal 
+`cd TailorShop-Management-System`.
 
-3. copy the file `.env.example` and rename it to `.env` at the project root folder.
+3. copy the file `.env.example` and rename it to `.env` at the project root folder. You can also use the command 
+`cp .env.example .env`
 
-4. setup your database in the .env file 
 
 
-5. In the terminal, run composer command `composer update`.
+4. setup your database and your app name in the .env file 
 
-6. run the following command in the terminal to run migrations and seeds `php artisan migrate:fresh --seed`.
 
-7. run the development server in the terminal using `php artisan serve`.
+5. In the terminal, run composer command
+ `composer update` or `composer install`.
+
+6. run the following command in the terminal to run migrations and seeds
+ `php artisan migrate:fresh --seed`.
+
+ You can also import the sql file in the Data folder.
+
+7. run the development server in the terminal using 
+`php artisan serve`.
 
 8. open your browser and go to the address in the terminal.Usually like this `http://127.0.0.1:8000/`
 
