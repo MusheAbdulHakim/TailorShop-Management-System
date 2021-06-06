@@ -1,0 +1,1 @@
+!function(t,r,i){"use strict";var d=!1;"rtl"==i("html").data("textdirection")&&(d=!0),!0===d&&(i(".tweet-slider").attr("dir","rtl"),i(".fb-post-slider").attr("dir","rtl"),i(".linkedin-post-slider").attr("dir","rtl"))}(window,document,jQuery);

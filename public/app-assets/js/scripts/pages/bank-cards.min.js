@@ -1,0 +1,1 @@
+$(".alt-pagination").DataTable({pagingType:"full_numbers"});

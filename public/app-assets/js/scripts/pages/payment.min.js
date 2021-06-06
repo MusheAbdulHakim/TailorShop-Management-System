@@ -1,0 +1,1 @@
+$("#commentForm").validate();
