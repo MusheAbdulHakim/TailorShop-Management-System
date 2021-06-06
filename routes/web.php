@@ -29,10 +29,12 @@ use App\Http\Controllers\Auth\RecoverPasswordController;
 |
 */
 
-Route::get('login',[LoginController::class,'index'])->name('login');
-Route::post('login',[LoginController::class,'login']);
-Route::get('recover-password',[RecoverPasswordController::class,'index'])->name('reset-password');
+Route::group(['middleware'=>['guest']],function (){
+    Route::get('login',[LoginController::class,'index'])->name('login');
+    Route::post('login',[LoginController::class,'login']);
+    Route::get('recover-password',[RecoverPasswordController::class,'index'])->name('reset-password');
 
+});
 
 Route::group(['middleware'=>['auth']],function (){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -97,6 +99,6 @@ Route::group(['middleware'=>['auth']],function (){
 
 });
 
-Route::get('test', function () {
-    return view('testing');
+Route::get('', function () {
+    return redirect()->route('dashboard');
 });
