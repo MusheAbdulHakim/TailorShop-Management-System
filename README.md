@@ -1,3 +1,32 @@
+# Installation
+
+1. Download the repository or clone using this command in the terminal. `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
+
+2. Go into the project folder. or use this command in the terminal `cd TailorShop-Management-System`.
+
+3. copy the file `.env.example` and rename it to `.env` at the project root folder.
+
+4. setup your database in the .env file 
+
+
+5. In the terminal, run composer command `composer update`.
+
+6. run the following command in the terminal to run migrations and seeds `php artisan migrate:fresh --seed`.
+
+7. run the development server in the terminal using `php artisan serve`.
+
+8. open your browser and go to the address in the terminal.Usually like this `http://127.0.0.1:8000/`
+
+9. Login to the default user :
+	`username`: `admin`
+	`password`: `admin`
+
+10. Star the repository, fork and send your pull request i will be happy to merge them :).
+
+#screenshots
+![ScreenShot](/screenshots/login.png?raw=true "Login page")
+![Dashboard](/screenshots/dashboard.png?raw=true "Dashbaord page")
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
