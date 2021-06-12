@@ -1,9 +1,10 @@
 @extends('layouts.app')
-@section('page-css')
 
-@endsection
+@push('page-css')
 
-@section('breadcrumb')
+@endpush
+
+@push('breadcrumb')
 <h3 class="content-header-title">Cloth Types</h3>
 <div class="row breadcrumbs-top">
 	<div class="breadcrumb-wrapper col-12">
@@ -17,11 +18,11 @@
 		</ol>
 	</div>
 </div>
-@endsection
+@endpush
 
-@section('breadcrumb-button')
+@push('breadcrumb-button')
 <x-buttons.primary :text="'Add Cloth Type'" :target="'#add-cloth-type'" />
-@endsection
+@endpush
 
 @section('content')
 
@@ -165,18 +166,18 @@
 @endsection
 
 
-@section('page-js')
+@push('page-js')
 <script>
-  $(document).ready(function (){
-    $('.editbtn').on('click',function (){
-      $('#edit-cloth-type').modal('show');
-      var id = $(this).data('id');
-      var name = $(this).data('name');
-	  var gender = $(this).data('gender');
-      $('#edit_id').val(id);
-      $('.edit_name').val(name);
-	  $('.edit_gender').val(gender);
-    })
-  })
-</script>
-@endsection
+	$(document).ready(function (){
+	  $('.editbtn').on('click',function (){
+		$('#edit-cloth-type').modal('show');
+		var id = $(this).data('id');
+		var name = $(this).data('name');
+		var gender = $(this).data('gender');
+		$('#edit_id').val(id);
+		$('.edit_name').val(name);
+		$('.edit_gender').val(gender);
+	  })
+	})
+  </script>
+@endpush

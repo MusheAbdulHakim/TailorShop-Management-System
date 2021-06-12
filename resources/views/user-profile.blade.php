@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('breadcrumb')
+@push('page-css')
+	
+@endpush
+
+@push('breadcrumb')
 <h3 class="content-header-title">User Profile</h3>
 <div class="row breadcrumbs-top">
   <div class="breadcrumb-wrapper col-12">
@@ -14,7 +18,7 @@
 	</ol>
   </div>
 </div>
-@endsection
+@endpush
 
 @section('content')
 	<!-- account setting page start -->
@@ -157,3 +161,7 @@
 	<!-- account setting page end -->
 @endsection
 
+
+@push('page-js')
+	
+@endpush

@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('page-css')
-@endsection
 
-@section('breadcrumb')
+@push('page-css')
+
+@endpush
+
+@push('breadcrumb')
 <h3 class="content-header-title">Staff</h3>
 <div class="row breadcrumbs-top">
 	<div class="breadcrumb-wrapper col-12">
@@ -16,11 +18,11 @@
 		</ol>
 	</div>
 </div>
-@endsection
+@endpush
 
-@section('breadcrumb-button')
+@push('breadcrumb-button')
 <x-buttons.primary :text="'Add Staff'" :target="'#add-staff'" />
-@endsection
+@endpush
 
 @section('content')
 	
@@ -183,3 +185,7 @@
 	</div>
   </div>
 @endsection
+
+@push('page-js')
+	
+@endpush

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('page-css')
+	
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col-xl-3 col-lg-6 col-12">
@@ -85,3 +89,7 @@
 	</div>
 </div>
 @endsection
+
+@push('page-js')
+	
+@endpush

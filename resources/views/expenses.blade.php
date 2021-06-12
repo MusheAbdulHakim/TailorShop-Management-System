@@ -1,9 +1,10 @@
 @extends('layouts.app')
-@section('page-css')
 
-@endsection
+@push('page-css')
 
-@section('breadcrumb')
+@endpush
+
+@push('breadcrumb')
 <h3 class="content-header-title">Expenses</h3>
 <div class="row breadcrumbs-top">
 	<div class="breadcrumb-wrapper col-12">
@@ -17,11 +18,11 @@
 		</ol>
 	</div>
 </div>
-@endsection
+@endpush
 
-@section('breadcrumb-button')
+@push('breadcrumb-button')
 <x-buttons.primary :text="'Add Expense'" :target="'#add-expense'" />
-@endsection
+@endpush
 
 
 @section('content')
@@ -205,7 +206,7 @@
 @endsection
 
 
-@section('page-js')
+@push('page-js')
 <script>
   $(document).ready(function (){
     $('.editbtn').on('click',function (){
@@ -223,4 +224,4 @@
     })
   })
 </script>
-@endsection
+@endpush
