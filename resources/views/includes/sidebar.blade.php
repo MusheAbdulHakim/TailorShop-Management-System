@@ -1,8 +1,8 @@
 <!-- BEGIN: Main Menu-->
 
-<div class="main-menu material-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true">
+<div class="main-menu material-menu menu-fixed menu-light menu-accordion menu-shadow " data-scroll-to-active="true">
     <div class="user-profile">
-        <div class="user-info text-center pt-1 pb-1"><img class="user-img img-fluid rounded-circle" src="@if(!empty(auth()->user()->avatar)){{asset('storage/avatars/'.auth()->user()->avatar)}}@else app-assets/images/portrait/small/avatar-s-1.png @endif"/>
+        <div class="user-info text-center pt-1 pb-1"><img class="user-img img-fluid rounded-circle" src="@if(!empty(auth()->user()->avatar)){{asset('storage/avatars/'.auth()->user()->avatar)}}@else {{asset('app-assets/images/portrait/small/avatar-s-1.png')}} @endif"/>
             <div class="name-wrapper d-block dropdown">
                 <a class="white dropdown-toggle ml-2" id="user-account" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="user-name">{{auth()->user()->name}}</span>
@@ -30,6 +30,16 @@
                     <i class="material-icons">dashboard</i>
                     <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
                 </a>
+            </li>
+
+            <li class=" nav-item"><a href="#"><i class="material-icons">code</i><span class="menu-title" data-i18n="Starter kit">Starter kit</span></a>
+                <ul class="menu-content">
+                    
+                    <li class="{{ Request::routeIs('template') ? 'active' : '' }}">
+                        <a class="menu-item" href="{{route('template')}}"><i class="material-icons"></i><span data-i18n="2 columns">2 Colums</span></a>
+                    </li>
+                    
+                </ul>
             </li>
 
             <li class="{{ Request::routeIs('orders') ? 'active' : '' }} nav-item">
