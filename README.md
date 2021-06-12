@@ -1,35 +1,41 @@
 # Installation
 
-1. Download the repository or clone using this command in the terminal.
- `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
+Download the repository or clone using this command in the terminal.
+1. `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
 
-2. Go into the project folder. or use this command in the terminal 
-`cd TailorShop-Management-System`.
+ Go into the project folder. or use this command in the terminal 
+2. `cd TailorShop-Management-System`.
 
-3. copy the file `.env.example` and rename it to `.env` at the project root folder. You can also use the command 
-`cp .env.example .env`
+Copy the file `.env.example` and rename it to `.env` at the project root folder. You can also use the command 
+3. `cp .env.example .env`
 
 
 
 4. setup your database and your app name in the .env file 
 
 
-5. In the terminal, run composer command
- `composer update` or `composer install`.
+- In the terminal, run composer command
 
-6. run the following command in the terminal to run migrations and seeds
- `php artisan migrate:fresh --seed`.
+5.`composer update` or `composer install`.
 
- You can also import the sql file in the Data folder.
+- Run the following command in the terminal to run migrations and seeds
 
-7. run the development server in the terminal using 
-`php artisan serve`.
+6. `php artisan migrate:fresh --seed`.
 
-8. open your browser and go to the address in the terminal.Usually like this `http://127.0.0.1:8000/`
+- You can also import the sql file in the Data folder.
+
+- Run the development server in the terminal using 
+
+7. `php artisan serve`.
+
+- Open your browser and go to the address in the terminal.Usually like this 
+
+8. `http://127.0.0.1:8000/`
 
 9. Login to the default user :
-	`username`: `admin`
-	`password`: `admin`
+
+- `username`: `admin`
+- `password`: `admin`
 
 10. Star the repository, fork and send your pull request i will be happy to merge them :).
 
