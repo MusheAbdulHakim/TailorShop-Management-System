@@ -97,6 +97,11 @@ Route::group(['middleware'=>['auth']],function (){
     Route::put('measurement-parts',[MeasurementPartController::class,'update']);
     Route::delete('measurement-parts',[MeasurementPartController::class,'destroy']);
 
+    Route::get('template', function () {
+        $title = "template Page";
+        return view('template',compact('title'));
+    })->name('template');
+
 });
 
 Route::get('', function () {
