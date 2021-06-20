@@ -36,7 +36,7 @@
                 <ul class="menu-content">
                     
                     <li class="{{ Request::routeIs('template') ? 'active' : '' }}">
-                        <a class="menu-item" href="{{route('template')}}"><i class="material-icons"></i><span data-i18n="2 columns">2 Colums</span></a>
+                        <a class="menu-item" href="{{route('template')}}"><i class="material-icons"></i><span data-i18n="blank page">Blank Page</span></a>
                     </li>
                     
                 </ul>
