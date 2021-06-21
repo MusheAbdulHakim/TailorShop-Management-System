@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc3d5f8fcf898d264d3f0b808f3cb632",
+    "content-hash": "1ba30824b98e7cbe117f9c7e02098b3c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -556,6 +556,62 @@
                 }
             ],
             "time": "2021-04-26T11:24:25+00:00"
+        },
+        {
+            "name": "fx3costa/laravelchartjs",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fxcosta/laravel-chartjs.git",
+                "reference": "f6560fa90ad2b12e11959fb5addda045d068f224"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fxcosta/laravel-chartjs/zipball/f6560fa90ad2b12e11959fb5addda045d068f224",
+                "reference": "f6560fa90ad2b12e11959fb5addda045d068f224",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1|^6.0|^7.0|^8.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fx3costa\\LaravelChartJs\\Providers\\ChartjsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fx3costa\\LaravelChartJs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Felix",
+                    "email": "fx3costa@gmail.com"
+                }
+            ],
+            "description": "Simple package to facilitate and automate the use of charts in Laravel 5.x using Chartjs v2 library",
+            "keywords": [
+                "chart",
+                "chartjs",
+                "fx3costa",
+                "graphics",
+                "laravel5",
+                "reports"
+            ],
+            "support": {
+                "issues": "https://github.com/fxcosta/laravel-chartjs/issues",
+                "source": "https://github.com/fxcosta/laravel-chartjs/tree/2.8.0"
+            },
+            "time": "2020-09-11T14:24:54+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2101,6 +2157,147 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.10.8"
             },
             "time": "2021-04-10T16:23:39+00:00"
+        },
+        {
+            "name": "qcod/laravel-app-settings",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qcod/laravel-app-settings.git",
+                "reference": "2f8c0874e6072ff718da63f82d5c2071fe11f1e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qcod/laravel-app-settings/zipball/2f8c0874e6072ff718da63f82d5c2071fe11f1e9",
+                "reference": "2f8c0874e6072ff718da63f82d5c2071fe11f1e9",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+                "php": "^7.2",
+                "qcod/laravel-settings": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4 || ~1.0",
+                "orchestra/testbench": "3.8.*|4.*|5.*",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "QCod\\AppSettings\\AppSettingsServiceProvider"
+                    ],
+                    "aliases": {
+                        "AppSettings": "QCod\\AppSettings\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "QCod\\AppSettings\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohd Saqueib Ansari",
+                    "email": "saquibweb@gmail.com"
+                }
+            ],
+            "description": "A package with UI to store and manage all the settings for your application",
+            "homepage": "https://github.com/qcod/laravel-app-settings",
+            "keywords": [
+                "app settings",
+                "bootstrap",
+                "database settings",
+                "db settings",
+                "eloquent",
+                "laravel",
+                "qcod",
+                "setting ui"
+            ],
+            "support": {
+                "issues": "https://github.com/qcod/laravel-app-settings/issues",
+                "source": "https://github.com/qcod/laravel-app-settings/tree/1.4.0"
+            },
+            "time": "2020-09-14T01:26:02+00:00"
+        },
+        {
+            "name": "qcod/laravel-settings",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qcod/laravel-settings.git",
+                "reference": "09a6d8a0457038e2d672ab57ed54e459103ba1f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qcod/laravel-settings/zipball/09a6d8a0457038e2d672ab57ed54e459103ba1f1",
+                "reference": "09a6d8a0457038e2d672ab57ed54e459103ba1f1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4 || ~1.0",
+                "orchestra/testbench": "3.8.*|4.*|5.*",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "QCod\\Settings\\SettingsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Settings": "QCod\\Settings\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-4": {
+                    "QCod\\Settings\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohd Saqueib Ansari",
+                    "email": "saquibweb@gmail.com"
+                }
+            ],
+            "description": "Store key value pair in database as settings",
+            "homepage": "https://github.com/qcod/laravel-settings",
+            "keywords": [
+                "database settings",
+                "db settings",
+                "eloquent",
+                "laravel",
+                "qcod"
+            ],
+            "support": {
+                "issues": "https://github.com/qcod/laravel-settings/issues",
+                "source": "https://github.com/qcod/laravel-settings/tree/1.0.9"
+            },
+            "time": "2020-09-14T01:17:40+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -7552,5 +7749,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

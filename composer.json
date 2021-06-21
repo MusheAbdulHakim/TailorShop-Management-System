@@ -8,9 +8,11 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "fx3costa/laravelchartjs": "^2.8",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "qcod/laravel-app-settings": "^1.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
