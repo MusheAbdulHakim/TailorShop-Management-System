@@ -30,7 +30,8 @@
 <!-- END: Page CSS-->
 <!-- BEGIN: Custom CSS-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-<!-- END: Custom CSS-->
+<link rel="stylesheet" href="{{asset('css/app.css')}}">
+ <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
 <!-- BEGIN: Body-->
@@ -73,6 +74,9 @@
 </div>
 </div>
 <!-- END: Content-->
+
+</body>
+<!-- END: Body-->
 <!-- BEGIN: Vendor JS-->
 <script src="{{asset('app-assets/vendors/js/material-vendors.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->
@@ -88,7 +92,7 @@
 <script src="{{asset('app-assets/js/scripts/pages/material-app.min.js')}}"></script>
 <script src="{{asset('app-assets/js/scripts/forms/form-login-register.min.js')}}"></script>
 <!-- END: Page JS-->
-</body>
-<!-- END: Body-->
-
+<!-- Custom JS-->
+<script src="{{asset('js/app.js')}}"></script>
+<!-- END: Custom JS-->
 </html>

@@ -38,7 +38,9 @@
         <!-- END: Page CSS-->
 
         <!-- BEGIN: Custom CSS-->
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}"> <!-- END: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+         <!-- END: Custom CSS-->
 
     </head>
     <!-- END: Head-->
@@ -94,76 +96,77 @@
         <!-- END: Footer-->
 
 
-        <!-- BEGIN: Vendor JS-->
-        <script src="{{asset('app-assets/vendors/js/material-vendors.min.js')}}"> </script>
-        <!-- BEGIN Vendor JS-->
-
-        <!-- BEGIN: Page Vendor JS-->
-        <script src="{{asset('app-assets/vendors/js/animation/jquery.appear.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/jszip.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/pdfmake.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/vfs_fonts.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/buttons.html5.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/buttons.print.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/tables/buttons.colVis.min.js')}}"></script>
-        <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
-        <!-- END: Page Vendor JS-->
-
-        <!-- BEGIN: Theme JS-->
-        <script src="{{asset('app-assets/js/core/app-menu.min.js')}}"></script>
-        <script src="{{asset('app-assets/js/core/app.min.js')}}"></script>
-        <script src="{{asset('app-assets/js/scripts/customizer.min.js')}}"></script>
-        <script src="{{asset('app-assets/js/scripts/footer.min.js')}}"></script>
-        <!-- END: Theme JS-->
-
-        <!-- BEGIN: Page JS-->
-        <script src="{{asset('app-assets/js/scripts/animation/animation.js')}}"></script>
-        <script src="{{asset('app-assets/js/scripts/pages/material-app.min.js')}}"></script>
-	    <script src="{{asset('app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js')}}"></script>
-        <script src="{{asset('app-assets/js/scripts/extensions/toastr.min.js')}}"></script>
-        <script>
-            @if(Session::has('message'))
-            var type = "{{ Session::get('alert-type', '') }}";
-            switch (type) {
-                case 'info':
-                    toastr.info("{{ Session::get('message') }}");
-                    break;
-                
-                case 'success':
-                    toastr.success("{{ Session::get('message') }}");
-                    break;
-                
-                case 'warning':
-                    toastr.warning("{{ Session::get('message') }}");
-                    break;
-                
-                case 'error':
-                    toastr.error("{{ Session::get('message') }}");
-                    break;
-
-                
-            }
-            @endif
-        </script>
-
-        <script>
-            $(document).ready(function (){
-                $('.deletebtn').on('click',function (){
-                    $('#deleteConfirmModal').modal('show');
-                    var id = $(this).data('id');
-                    $('#delete_id').val(id);
-
-                });
-            });
-        </script>
-        
-        @stack('page-js')
-        <!-- END: Page JS-->
-
-
     </body>
     <!-- END: Body-->
+     <!-- BEGIN: Vendor JS-->
+     <script src="{{asset('app-assets/vendors/js/material-vendors.min.js')}}"> </script>
+     <!-- BEGIN Vendor JS-->
+
+     <!-- BEGIN: Page Vendor JS-->
+     <script src="{{asset('app-assets/vendors/js/animation/jquery.appear.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/jszip.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/pdfmake.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/vfs_fonts.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/buttons.html5.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/buttons.print.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/tables/buttons.colVis.min.js')}}"></script>
+     <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
+     <!-- END: Page Vendor JS-->
+
+     <!-- BEGIN: Theme JS-->
+     <script src="{{asset('app-assets/js/core/app-menu.min.js')}}"></script>
+     <script src="{{asset('app-assets/js/core/app.min.js')}}"></script>
+     <script src="{{asset('app-assets/js/scripts/customizer.min.js')}}"></script>
+     <script src="{{asset('app-assets/js/scripts/footer.min.js')}}"></script>
+     <!-- END: Theme JS-->
+
+     <!-- BEGIN: Page JS-->
+     <script src="{{asset('app-assets/js/scripts/animation/animation.js')}}"></script>
+     <script src="{{asset('app-assets/js/scripts/pages/material-app.min.js')}}"></script>
+     <script src="{{asset('app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.min.js')}}"></script>
+     <script src="{{asset('app-assets/js/scripts/extensions/toastr.min.js')}}"></script>
+     <script>
+         @if(Session::has('message'))
+         var type = "{{ Session::get('alert-type', '') }}";
+         switch (type) {
+             case 'info':
+                 toastr.info("{{ Session::get('message') }}");
+                 break;
+             
+             case 'success':
+                 toastr.success("{{ Session::get('message') }}");
+                 break;
+             
+             case 'warning':
+                 toastr.warning("{{ Session::get('message') }}");
+                 break;
+             
+             case 'error':
+                 toastr.error("{{ Session::get('message') }}");
+                 break;
+
+             
+         }
+         @endif
+     </script>
+
+     <script>
+         $(document).ready(function (){
+             $('.deletebtn').on('click',function (){
+                 $('#deleteConfirmModal').modal('show');
+                 var id = $(this).data('id');
+                 $('#delete_id').val(id);
+
+             });
+         });
+     </script>
+     
+     @stack('page-js')
+     <!-- END: Page JS-->
+     <!-- Custom JS-->
+     <script src="{{asset('js/app.js')}}"></script>
+     <!-- END: Custom JS-->
 </html>
