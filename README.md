@@ -1,43 +1,75 @@
 # Installation
 
-Download the repository or clone using this command in the terminal.
-1. `git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git`.
+1. Download the repository or clone using this command in the terminal.
+ ```
+ git clone https://github.com/MusheAbdulHakim/TailorShop-Management-System.git
 
- Go into the project folder. or use this command in the terminal 
-2. `cd TailorShop-Management-System`.
+```
 
-Copy the file `.env.example` and rename it to `.env` at the project root folder. You can also use the command 
-3. `cp .env.example .env`
+2. Go into the project folder. or use this command in the terminal 
+```
+cd TailorShop-Management-System
+```
 
+3. rename the file name `.env.example` to `.env` or copy it and rename paste it at the project root and name it `.env`.You can simply use this command.
+```
+cp .env.example .env
+```
 
+4. Generate app key using this command.
+```php artisan key:generate ```
 
-4. setup your database and your app name in the .env file 
+5. setup your database and your app name in the .env file 
 
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tms
+DB_USERNAME=root
+DB_PASSWORD=
 
-- In the terminal, run composer command
+```
 
-5.`composer update` or `composer install`.
+6. Install dependencies using the following command
+```
+composer install
 
-- Run the following command in the terminal to run migrations and seeds
+```
 
-6. `php artisan migrate:fresh --seed`.
+7. Run the following command in the terminal to run migrations and seeds
 
-- You can also import the sql file in the Data folder.
+ ```
+ php artisan migrate:fresh --seed
+ ```
+ You can also import the tms.sql file in the database folder. 
 
-- Run the development server in the terminal using 
+8. Install npm packages
+```
+npm install; npm run dev
+```
+9. Start the development server in the terminal using 
 
-7. `php artisan serve`.
+```
+php artisan serve
+```
 
-- Open your browser and go to the address in the terminal.Usually like this 
+10. Open your browser and go to the address in the terminal.Usually like this 
 
-8. `http://127.0.0.1:8000/`
+```
+http://127.0.0.1:8000/
 
-9. Login to the default user :
+```
 
-- `username`: `admin`
-- `password`: `admin`
+11. Login to the default user :
 
-10. Star the repository, fork and send your pull request i will be happy to merge them :).
+```
+username: admin
+password: password
+
+```
+
+12. Star the repository,request features,report bugs, fork and send your pull request i will be happy to merge them :).
 
 #screenshots
 ![ScreenShot](/screenshots/login.png?raw=true "Login page")
