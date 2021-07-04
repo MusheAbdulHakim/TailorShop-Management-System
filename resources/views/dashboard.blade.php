@@ -60,7 +60,7 @@
 						<div class="card-body">
 								<div class="media d-flex">
 										<div class="media-body text-left">
-												<h3 class="warning">${{$total_income}}</h3>
+												<h3 class="warning">{{settings('app_currency','$')}} {{$total_income}}</h3>
 												<h6>Last 30 Days Income!</h6>
 										</div>
 										<div>
@@ -81,7 +81,7 @@
 						<div class="card-body">
 								<div class="media d-flex">
 										<div class="media-body text-left">
-												<h3 class="danger">${{$total_expense}}</h3>
+												<h3 class="danger">{{settings('app_currency','$')}} {{$total_expense}}</h3>
 												<h6>Last 30 Days Expenses!</h6>
 										</div>
 										<div>
