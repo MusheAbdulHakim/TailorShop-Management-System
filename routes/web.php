@@ -6,6 +6,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ClothTypeController;
 use App\Http\Controllers\DashboardController;
@@ -96,6 +97,8 @@ Route::group(['middleware'=>['auth']],function (){
     Route::post('measurement-parts',[MeasurementPartController::class,'store']);
     Route::put('measurement-parts',[MeasurementPartController::class,'update']);
     Route::delete('measurement-parts',[MeasurementPartController::class,'destroy']);
+
+    Route::get('settings',[SettingController::class,'index'])->name('settings');
 
     Route::get('template', function () {
         $title = "template Page";
