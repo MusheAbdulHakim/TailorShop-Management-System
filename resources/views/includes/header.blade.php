@@ -10,8 +10,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{route('dashboard')}}">
-                        <img class="brand-logo" alt="logo" src="{{asset('app-assets/images/logo/logo.png')}}">
-                        <h3 class="brand-text">{{ucfirst(config('app.name'))}}</h3>
+                        <img class="brand-logo" alt="logo" src="@if(!empty(AppSettings::get('logo'))) {{asset('storage/'.AppSettings::get('logo'))}} @else{{asset('app-assets/images/logo/logo.png')}} @endif">
+                        <h3 class="brand-text">{{ucfirst(setting('app_name', config('app.name')))}}</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">

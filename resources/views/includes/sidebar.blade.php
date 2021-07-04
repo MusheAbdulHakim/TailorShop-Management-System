@@ -143,10 +143,17 @@
                             <span data-i18n="Measurement Parts">Measurement Parts</span>
                         </a>
                     </li>
+                    
+                    
                 </ul>
             </li>
 
-            
+            <li class="nav-item {{ Request::routeIs('settings') ? 'active' : '' }}">
+                <a href="{{route('settings')}}">
+                    <i class="material-icons">settings</i>
+                    <span class="menu-title" data-i18n="Setting">Settings</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
