@@ -71,7 +71,7 @@ password: password
 
 12. Star the repository,request features,report bugs, fork and send your pull request i will be happy to merge them :).
 
-#screenshots
+# Screenshots
 ![ScreenShot](/screenshots/login.png?raw=true "Login page")
 ![Dashboard](/screenshots/dashboard.png?raw=true "Dashbaord page")
 
