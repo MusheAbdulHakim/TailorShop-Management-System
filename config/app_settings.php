@@ -19,8 +19,19 @@ return [
                     'class' => 'form-control', // override global input_class
                     'style' => '', // any inline styles
                     'rules' => 'required|min:2|max:20', // validation rules for this input
-                    'value' => 'QCode', // any default value
+                    'value' => config('app.name'), // any default value
                     'hint' => 'You can set the app name here' // help block text for input
+                ],
+                [
+                    'name' => 'app_currency',
+                    'type' => 'text',
+                    'label' => 'App Currency',
+                    'placeholder' => 'Application Currency',
+                    'class' => 'form-control',
+                    'style' => '', // any inline styles
+                    'rules' => 'required|max:10', // validation rules for this input
+                    'value' => '$', // any default value
+                    'hint' => 'Use your currency symbol like $',
                 ],
                 [
                     'name' => 'logo',
@@ -32,30 +43,21 @@ return [
                     'path' => 'app', // path on the disk,
                     'preview_class' => 'thumbnail',
                     'preview_style' => 'height:40px'
+                ],
+                [
+                    'name' => 'favicon',
+                    'type' => 'image',
+                    'label' => 'Upload favicon',
+                    'hint' => 'Must be an image and cropped in desired size',
+                    'rules' => 'image|max:500',
+                    'disk' => 'public', // which disk you want to upload
+                    'path' => 'app', // path on the disk,
+                    'preview_class' => 'thumbnail',
+                    'preview_style' => 'height:40px'
                 ]
             ]
         ],
-        'email' => [
-            'title' => 'Email Settings',
-            'descriptions' => 'How app email will be sent.',
-            'icon' => 'fa fa-envelope',
-
-            'inputs' => [
-                [
-                    'name' => 'from_email',
-                    'type' => 'email',
-                    'label' => 'From Email',
-                    'placeholder' => 'Application from email',
-                    'rules' => 'required|email',
-                ],
-                [
-                    'name' => 'from_name',
-                    'type' => 'text',
-                    'label' => 'Email from Name',
-                    'placeholder' => 'Email from Name',
-                ]
-            ]
-        ]
+        
     ],
 
     // Setting page url, will be used for get and post request
@@ -65,7 +67,7 @@ return [
     'middleware' => [],
 
     // View settings
-    'setting_page_view' => 'app_settings::settings_page',
+    'setting_page_view' => 'settings',
     'flash_partial' => 'app_settings::_flash',
 
     // Setting section class setting
