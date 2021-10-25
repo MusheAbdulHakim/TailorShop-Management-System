@@ -20,8 +20,8 @@
 					<div class="card-body">
 						<div class="media d-flex">
 							<div class="media-body text-left">
-								<h3 class="success">{{$total_customers}}</h3>
-								<h6>Total Customers</h6>
+								<h3 class="success">{{App\Models\User::count()}}</h3>
+								<h6>Users</h6>
 							</div>
 							<div>
 								<i class="icon-users success font-large-2 float-right"></i>
@@ -40,7 +40,7 @@
 						<div class="card-body">
 								<div class="media d-flex">
 										<div class="media-body text-left">
-												<h3 class="info">{{$total_orders}}</h3>
+												<h3 class="info">{{App\Models\Orders::count()}}</h3>
 												<h6>Total Orders</h6>
 										</div>
 										<div>
@@ -98,8 +98,31 @@
 
 </div>
 <!-- Products sell and New Orders -->
-{{-- <div class="row match-height">
-    <div class="col-xl-12 col-12" id="ecommerceChartView">
+<div class="row match-height">
+	<!-- Pie Chart -->
+	<div class="col-md-6 col-sm-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Resource PieChart</h4>
+				<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+				<div class="heading-elements">
+					<ul class="list-inline mb-0">
+						<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+						<li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+						<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+						<li><a data-action="close"><i class="ft-x"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-content collapse show">
+				<div class="card-body">
+					{!! $pieChart->render() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Pie Chart -->	
+    {{-- <div class="col-xl-6 col-6" id="ecommerceChartView">
         <div class="card card-shadow">
         <div class="card-header card-header-transparent py-20">
             <div class="btn-group dropdown">
@@ -122,9 +145,9 @@
             <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToMonth"></div>
         </div>
         </div>
-    </div>
+    </div> --}}
     
-</div> --}}
+</div>
 <!--/ Products sell and New Orders -->
 @endsection
 
@@ -137,4 +160,5 @@
     <script src="{{asset('app-assets/vendors/js/timeline/horizontal-timeline.js')}}"></script>
     <!-- END: Page Vendor JS-->
 	<script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.min.js')}}"></script>
+	<script src="{{asset('app-assets/vendors/js/charts/chart.min.js')}}"></script>
 @endpush

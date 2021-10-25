@@ -32,15 +32,7 @@
                 </a>
             </li>
 
-            <li class=" nav-item"><a href="#"><i class="material-icons">code</i><span class="menu-title" data-i18n="Starter kit">Starter kit</span></a>
-                <ul class="menu-content">
-                    
-                    <li class="{{ Request::routeIs('template') ? 'active' : '' }}">
-                        <a class="menu-item" href="{{route('template')}}"><i class="material-icons"></i><span data-i18n="blank page">Blank Page</span></a>
-                    </li>
-                    
-                </ul>
-            </li>
+            
 
             <li class="{{ Request::routeIs('orders') ? 'active' : '' }} nav-item">
                 <a href="{{route('orders')}}">

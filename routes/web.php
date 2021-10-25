@@ -39,6 +39,7 @@ Route::group(['middleware'=>['guest']],function (){
 
 Route::group(['middleware'=>['auth']],function (){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('/',[DashboardController::class,'index']);
     Route::get('logout',[LogoutController::class,'index'])->name('logout');
 
     Route::get('customers',[CustomerController::class,'index'])->name('customers');
@@ -100,13 +101,7 @@ Route::group(['middleware'=>['auth']],function (){
 
     Route::get('settings',[SettingController::class,'index'])->name('settings');
 
-    Route::get('template', function () {
-        $title = "template Page";
-        return view('template',compact('title'));
-    })->name('template');
+    
 
 });
 
-Route::get('', function () {
-    return redirect()->route('dashboard');
-});
